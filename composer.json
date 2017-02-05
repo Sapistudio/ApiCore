@@ -1,5 +1,5 @@
 {
-    "name": "sapiapi/core",
+    "name": "sapistudio/apicore",
     "type": "library",
     "description": "Core provides a unified interface for building API Clients",
     "homepage": "https://github.com/apivore/core",

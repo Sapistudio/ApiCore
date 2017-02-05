@@ -2,10 +2,6 @@
     "name": "sapiapi/core",
     "type": "library",
     "description": "Core provides a unified interface for building API Clients",
-    "keywords": [
-        "apivore",
-        "core"
-    ],
     "homepage": "https://github.com/apivore/core",
     "license": "MIT",
     "authors": [{

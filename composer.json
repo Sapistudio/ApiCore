@@ -12,7 +12,8 @@
         "name": "DraperStudio",
         "email": "hello@draperstudio.tech",
         "homepage": "http://draperstudio.tech",
-        "role": "Developer of the intial project(apivore/core)",
+        "role": "Developer of the intial project(apivore/core)"
+    },{
         "name": "Sapistudio"
     }],
     "require": {

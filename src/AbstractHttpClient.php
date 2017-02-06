@@ -96,9 +96,12 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function get($path)
+    public function get($path=null,$parameters=null)
     {
-        return $this->request('GET', $path);
+        if($parameters)
+            foreach($parameters as $key=>$parameter)
+                $this->addQuery($key,$parameter);
+        return $this->request('GET',$path);
     }
 
     /**
@@ -106,7 +109,7 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function head($path)
+    public function head($path=null,$parameters=null)
     {
         return $this->request('HEAD', $path);
     }
@@ -116,7 +119,7 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function delete($path)
+    public function delete($path=null,$parameters=null)
     {
         return $this->request('DELETE', $path);
     }
@@ -126,7 +129,7 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function put($path)
+    public function put($path=null,$parameters=null)
     {
         return $this->request('PUT', $path);
     }
@@ -136,7 +139,7 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function patch($path)
+    public function patch($path=null,$parameters=null)
     {
         return $this->request('PATCH', $path);
     }
@@ -146,8 +149,11 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function post($path)
+    public function post($path=null,$parameters=null)
     {
+        if($parameters)
+            foreach($parameters as $key=>$parameter)
+                $this->addFormParameter($key,$parameter);
         return $this->request('POST', $path);
     }
 
@@ -156,7 +162,7 @@ abstract class AbstractHttpClient implements HttpClient
      *
      * @return mixed
      */
-    public function options($path)
+    public function options($path=null,$parameters=null)
     {
         return $this->request('OPTIONS', $path);
     }
@@ -167,13 +173,10 @@ abstract class AbstractHttpClient implements HttpClient
     public function getHttpClient()
     {
         $this->options['defaults']['headers'] = $this->getHeaders();
-
         if (class_exists($handler = $this->getHandler())) {
             $handler = new $handler($this);
-
             $this->setHandler($handler->create());
         }
-
         return new GuzzleClient($this->options);
     }
 

@@ -224,7 +224,7 @@ abstract class AbstractHttpClient implements HttpClient
         );
 
         try {
-            $response = $client->send($request, $modifiedClient->body);
+            $response = $client->setResponseBody('/srv/www/dsadas.txt')->send($request, $modifiedClient->body);
         } catch (ClientException $e) {
             return $this->requestErrorHandler->handle($e);
         }

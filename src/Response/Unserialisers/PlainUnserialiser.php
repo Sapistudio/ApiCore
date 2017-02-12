@@ -25,6 +25,6 @@ class PlainUnserialiser implements Unserialiser
      */
     public function unserialise($input)
     {
-        return $input->getContents();
+        return (string)$input->getContents();
     }
 }

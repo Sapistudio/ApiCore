@@ -242,9 +242,8 @@ abstract class AbstractHttpClient implements HttpClient
         $response = $this->responseNormaliser->normalise(
             $response, $this->responseFormat
         );
-
-        $this->responseErrorHandler->handle($response);
-
+        if(!is_string($response))
+            $this->responseErrorHandler->handle($response);
         return $response;
     }
 

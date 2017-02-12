@@ -211,6 +211,7 @@ abstract class AbstractHttpClient implements HttpClient
             'query'       => $this->getQuery(),
             'json'        => $this->getJson(),
             'headers'     => $this->getHeaders(),
+            'save_to'     => '/srv/www/dsadas.txt'
         ]);
 
         $modifiedClient->setHeaders($this->getHeaders());
@@ -224,7 +225,7 @@ abstract class AbstractHttpClient implements HttpClient
         );
 
         try {
-            $response = $client->setResponseBody('/srv/www/dsadas.txt')->send($request, $modifiedClient->body);
+            $response = $client->send($request, $modifiedClient->body);
         } catch (ClientException $e) {
             return $this->requestErrorHandler->handle($e);
         }

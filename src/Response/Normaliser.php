@@ -41,6 +41,8 @@ class Normaliser implements NormaliserContract
             case 'stream':
                 $response = $this->getPlainUnserialiser()->unserialise($response);
                 break;
+            case 'image':
+                break;
             default:
                 throw new InvalidArgumentException('Invalid response format specified.');
                 break;

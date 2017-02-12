@@ -443,6 +443,15 @@ abstract class AbstractHttpClient implements HttpClient
     {
         $this->options[$key] = $value;
     }
+    
+    /**
+     * @param $key
+     * @param $value
+     */
+    public function unsetOption($key)
+    {
+        unset($this->options[$key]);
+    }
 
     /**
      * @param $path

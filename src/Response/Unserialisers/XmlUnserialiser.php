@@ -25,6 +25,6 @@ class XmlUnserialiser implements Unserialiser
      */
     public function unserialise($input,$class = null)
     {
-        return (array) json_decode(json_encode(simplexml_load_string($input, null, LIBXML_NOCDATA)));
+        return (array) json_decode(json_encode(simplexml_load_string($input, null, LIBXML_NOCDATA)),true);
     }
 }
